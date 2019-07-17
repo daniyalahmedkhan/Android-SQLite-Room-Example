@@ -3,6 +3,8 @@ package com.example.roomexample;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 import android.os.Bundle;
+import android.widget.Toast;
+
 import com.example.roomexample.Entities.Item;
 import com.example.roomexample.Interface.ItemDAO;
 
@@ -29,6 +31,12 @@ public class MainActivity extends AppCompatActivity {
         item.setQuantity(500);
 
         itemDAO.insert(item);
+    }
+
+    private void UpdateItem(){
+
+
+        Toast.makeText(this, "update item", Toast.LENGTH_SHORT).show();
     }
 
 
