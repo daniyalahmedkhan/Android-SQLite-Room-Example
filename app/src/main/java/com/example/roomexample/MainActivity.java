@@ -35,11 +35,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void UpdateItem(){
 
-
-        Toast.makeText(this, "update item", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "update item", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "update item", Toast.LENGTH_SHORT).show();
     }
 
 
+
+    private void InsertItem(){
+
+
+    }
+
+    private void DeleteItem(){
+
+
+    }
 }
