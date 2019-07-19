@@ -1,8 +1,11 @@
 package com.example.roomexample;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.room.Room;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.roomexample.Entities.Item;
@@ -12,8 +15,10 @@ import java.util.List;
 import java.util.ListIterator;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+
+    Button insert , update , delete , get;
 
   //  ItemDAO itemDAO ;
   AppDatabase database;
@@ -31,6 +36,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    private void init(){
+
+        insert = (Button) findViewById(R.id.insert);
+        update = (Button) findViewById(R.id.update);
+        delete = (Button) findViewById(R.id.delete);
+        get = (Button) findViewById(R.id.get);
+
+
+        insert.setOnClickListener(this);
+        update.setOnClickListener(this);
+        delete.setOnClickListener(this);
+        get.setOnClickListener(this);
+
+    }
 
 
     private void InsertItem(){
@@ -64,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void GetITtem(){
+    private void GetIttem(){
 
         ItemDAO itemDAO = database.getItemDAO();
 
@@ -72,4 +92,31 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onClick(View view) {
+
+        switch(view.getId()){
+
+            case R.id.insert:
+
+                InsertItem();
+              break;
+
+            case R.id.update:
+
+                UpdateItem();
+              break;
+
+
+            case R.id.delete:
+
+                DeleteItem();
+              break;
+
+            case R.id.get:
+
+                GetIttem();
+             break;
+        }
+    }
 }
