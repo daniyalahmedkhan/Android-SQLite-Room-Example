@@ -15,10 +15,12 @@ import java.util.List;
     public interface ItemDAO {
     @Insert
     public void insert(Item... items);
-    @Update
-    public void update(Item... items);
-    @Delete
-    public void delete(Item item);
+
+   @Query("UPDATE items set description = :description where id = :id")
+   void update(String description , String id);
+
+    @Query("DELETE from items where id = :id")
+    void delete(String id);
 
 
     @Query("SELECT * FROM items")
